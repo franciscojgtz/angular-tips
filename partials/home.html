@@ -1,0 +1,83 @@
+<div header user="user" logout="logout()" ></div>
+
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li class="active">
+            <a href="#">Home</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container">
+  <h4>Tips</h4>
+  <button type="button" class="btn btn-danger fa fa-plus" ng-click="open(tip);">&nbsp;Add New Tip</button>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+		<div class="input-group">
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-secondary" ng-click="previousDay(selectedDate);">Prev</button>
+				</span>
+				<input type="date" placeholder="Change month ..." id="inputdefault" class="form-control" ng-model="selectedDate" focus />
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-secondary" ng-click="nextDay(selectedDate);">Next</button>
+				</span>
+			</div>
+	</div>
+    <div class="panel-body">
+		<table class="table table-striped" ng-repeat="tip in tips | orderBy:'-date'" ng-show="selectedDate == '{{tip.date | date:'yyyy-MM-dd'}}'">
+		<tr ng-show="tips.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+		<tr ng-hide="tips.length>-1"><td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td></tr>
+		
+		<tr animate-on-change='tip.tip' ng-animate=" 'animate'">
+		<td>Tip</td>
+		<td>{{tip.tip | currency}}</td>
+		</tr>
+		
+		<tr animate-on-change='tip.date' ng-animate=" 'animate'">
+		<td>Date</td>
+		<td>{{tip.date | date:"MMM-dd-yy"}}</td>
+		</tr>
+		
+		<tr animate-on-change='tip.tipout' ng-animate=" 'animate'">
+		<td>Tip Out</td>
+		<td>{{tip.tipout | currency}}</td>
+		</tr>
+		
+		<tr animate-on-change='tip.sales' ng-animate=" 'animate'">
+		<td>Sales</td>
+		<td>{{tip.sales | currency}}</td>
+		</tr>
+		
+		<tr animate-on-change='tip.hoursworked' ng-animate=" 'animate'" ng-animate=" 'animate'">
+		<td>Hours Worked</td>
+		<td>{{tip.hoursworked}}</td>
+		</tr>
+		
+		<tr animate-on-change='tip.hourlypay' ng-animate=" 'animate'">
+		<td>Pay Rate</td>
+		<td>{{tip.hourlypay | currency}}</td>
+		</tr>
+		
+		<tr animate-on-change='tip.tip + tip.tipout + tip.hourlypay + tip.hoursworked' ng-animate=" 'animate'">
+		<td>Total Income</td>
+		<td>{{tip.hourlypay*tip.hoursworked + tip.tip - tip.tipout | currency}}</td>
+		</tr>
+		
+		<tr animate-on-change='tip.tip + tip.tipout + tip.hourlypay + tip.hoursworked' ng-animate=" 'animate'">
+		<td>Hourly Average</td>
+		<td>{{(tip.hourlypay*tip.hoursworked + tip.tip - tip.tipout) / tip.hoursworked | currency}}</td>
+		</tr>
+		
+		
+		<tr >
+		<td><button type="button" class="btn btn-default fa fa-edit" ng-click="open(tip);"></button></td>
+		<td><button type="button" class="btn btn-danger fa fa-trash-o" ng-click="deleteTip(tip);"></button></td>
+		</tr>
+		
+	</table>
+	</div>
+    <div class="panel-footer">{{selectedDate | date:'MMMM dd yyyy'}}</div>
+  </div>
+</div>
+<p><a ng-click="logout();">Logout</a></p>
+<div footer></div>

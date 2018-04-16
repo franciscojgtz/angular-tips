@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Francisco Gutierrez">
+	<meta id="meta" name="viewport" content="width=device-width" initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+	<link rel="stylesheet" href="css/toaster.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <title>AngularJS Tip-Tracker</title>
+</head>
+<body ng-app="tipTrackerApp" ng-cloak="">
+    <div class="container">
+        <div class="page-content">
+            <div ng-view="" id="ng-view"></div>
+        </div>
+    </div>
+	
+	 <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+    <!-- Libraries -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.11.2.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/toaster.js"></script>
+
+    <!-- AngularJS custom codes -->
+    <script src="app/app.js"></script>
+	<script src="app/controllers/authCtrl.js"></script>
+	<script src="app/controllers/tipByDayCtrl.js"></script>
+	<script src="app/controllers/addTipCtrl.js"></script>
+	<script src="app/controllers/tipsCtrl.js"></script>
+	<script src="app/controllers/tipEditCtrl.js"></script>
+	<script src="app/controllers/averagesCtrl.js"></script>
+    <script src="app/services/data.js"></script>
+	<script src="app/services/tips.js"></script>
+	<script src="app/services/checkAuth.js"></script>
+    <script src="app/directives/directives.js"></script>
+
+    <!-- Some Bootstrap Helper Libraries -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/underscore.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

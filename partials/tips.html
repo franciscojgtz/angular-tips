@@ -1,0 +1,50 @@
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#">Home</a>
+        </li>
+        <li class="active">Tips</li>
+    </ul>
+</div>
+
+<h4 class="blog-post-title">Tips</h4>
+<p><a ng-click="logout();">Logout</a></p>
+<p></p>
+<hr/>
+<button type="button" class="btn btn-danger fa fa-plus" ng-click="open(tip);">&nbsp;Add New Tip</button>
+
+<div class="table-responsive">
+<div class="panel panel-primary">
+  <div class="panel-heading">Tips
+  
+  <div class="sw-search" >
+            <div class="nav-search" id="nav-search">
+                    date: <span class="input-icon">
+                        <input type="month" placeholder="Change month ..." class="nav-search-input" ng-model="selectedMonth" ng-change="changeSelectedMonth();" style="width:300px;" focus>
+                        <i class="search-icon fa fa-search nav-search-icon"></i>
+                    </span>
+            </div>
+        </div>
+  
+  </div>
+  <div class="panel-body">
+	<table class="table table-striped">
+		<tr ng-show="tips.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+		<tr ng-hide="tips.length>-1"><td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td></tr>
+		
+		<tr><th ng-repeat="c in columns">{{c.text}}</th></tr>
+		
+		<tr ng-repeat="tip in tips | orderBy:'-date'" id="{{tip.id}}" ng-show="selectedMonth == '{{tip.date | date:'yyyy-MM'}}'" animate-on-change='tip.tip + tip.date + tip.tipout + tip.sales + tip.hourlypay + tip.hoursworked' ng-animate=" 'animate'">
+			<td>${{tip.tip}}</td><td>{{tip.date | date:"MMM-dd-yy"}}</td><td>${{tip.tipout}}</td><td>${{tip.sales}}</td><td>{{tip.hoursworked}}</td><td>${{tip.hourlypay}}</td>
+			 <td style="width:100px">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default fa fa-edit" ng-click="open(tip);"></button>
+					<button type="button" class="btn btn-danger fa fa-trash-o" ng-click="deleteTip(tip);"></button>
+				</div>
+				
+		</tr>
+	</table>
+  </div>
+ </div>
+ </div>	

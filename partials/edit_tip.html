@@ -1,0 +1,54 @@
+    <button type="button" class="close" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit tip [ID: {{tip.id}}]</h3>
+    </div>
+    <div class="modal-body">
+        <form name="tip_form" class="form-horizontal" role="form" novalidate>
+            <form-element label="DATE" mod="tip">
+                <input type="date" class="form-control" name="date" ng-model="tip.date" max="{{currentDate | date:'yyyy-MM-dd'}}" required focus/>
+            </form-element>
+            <form-element label="TIPS" mod="tip">
+                <input type="number" name="tip" class="form-control" placeholder="TIPS" step="0.01" min="0" ng-model="tip.tip" required only-numbers/>
+                <small class="errorMessage" ng-show="tip_form.tip.$dirty && tip_form.tip.$invalid"> Enter the tips.</small>
+            </form-element>
+
+            <form-element label="TIPOUT" mod="tip">
+                <input type="number" name="tipout" class="form-control" placeholder="TIP OUT" step="0.01" min="0" ng-model="tip.tipout" only-numbers/>
+                <small class="errorMessage" ng-show="tip_form.tipout.$dirty && tip_form.tipout.$invalid"> Enter the tip out.</small>
+            </form-element>
+			
+			<form-element label="SALES" mod="tip">
+                <input type="number" name="sales" class="form-control" placeholder="SALES" step="0.01" min="0" ng-model="tip.sales" only-numbers/>
+                <small class="errorMessage" ng-show="tip_form.sales.$dirty && tip_form.sales.$invalid"> Enter the sales.</small>
+            </form-element>
+			
+			<form-element label="HOURSWORKED" mod="tip">
+                <input type="number" name="hoursworked" class="form-control" placeholder="HOURS WORKED" step="0.01" min="0" ng-model="tip.hoursworked" only-numbers/>
+                <small class="errorMessage" ng-show="tip_form.hoursworked.$dirty && tip_form.hoursworked.$invalid"> Enter the tip out.</small>
+            </form-element>
+			
+			<form-element label="HOURLYPAY" mod="tip">
+                <input type="number" name="hourlypay" class="form-control" placeholder="PAY RATE" step="0.01" min="0" ng-model="tip.hourlypay" only-numbers/>
+                <small class="errorMessage" ng-show="tip_form.hourlypay.$dirty && tip_form.hourlypay.$invalid"> Enter the tip out.</small>
+            </form-element>
+
+            <div class="space"></div>
+            <div class="space-4"></div>
+            <div class="modal-footer">
+                <form-element label="">
+                    <div class="text-right">
+                        <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>Cancel</a>
+                        <button ng-click="saveTip(tip);"
+                                ng-disabled="tip_form.$invalid || enableUpdate"
+                                class="btn btn-sm btn-primary"
+                                type="submit">
+                            <i class="ace-icon fa fa-check"></i>{{buttonText}}
+                        </button>
+                    </div>
+                </form-element>
+            </div>
+        </form>
+    </div>
+

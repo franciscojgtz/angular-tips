@@ -1,0 +1,79 @@
+<div header></div>
+
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+			<i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#">Home</a>
+        </li>
+        <li class="active">SignUp</li>
+    </ul>
+</div>
+
+<div class="page-content">
+	<div class="row">
+		<div class="space-6"></div>
+		<div class="col-sm-10 col-sm-offset-1">
+			<div id="login-box" class="login-box visible widget-box no-border">
+				<div class="widget-body">
+				<div class="widget-main">
+					<h4 class="header blue lighter bigger">
+						<i class="icon-coffee green"></i>
+						Signup for Angular Tip-Tracker
+					</h4>
+					<div class="space-16"></div>
+					<form name="signupForm" class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="email">Email <i class="fa fa-envelope" aria-hidden="true"></i></label>
+							<div class="col-sm-7">
+								<span class="block input-icon input-icon-right">
+									<input type="text" class="form-control" placeholder="Email" name="email" ng-model="signup.email" focus/>
+									<span ng-show="signupForm.email.$error.email" class="help-inline">Email is not valid</span> 
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="password">Password <i class="ace-icon fa fa-lock" aria-hidden="true"></i></label>
+							<div class="col-sm-7">
+								<span class="block input-icon input-icon-right">
+									<input type="password" class="form-control" name = "password" placeholder="Password" ng-model="signup.password" required/>
+									<small class="errorMessage" data-ng-show="signupForm.password.$dirty && signupForm.password.$invalid"> Enter Password.</small>
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="password2">Confirm Password <i class="ace-icon fa fa-lock" aria-hidden="true"></i></label>
+							<div class="col-sm-7">
+								<span class="block input-icon input-icon-right">
+									<input type="password" class="form-control" name="password2" placeholder="Password Again" ng-model="signup.password2" password-match="signup.password" required/>                                
+									<small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.required"> Enter password again.</small>
+									<small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.passwordNoMatch && !signupForm.password2.$error.required"> Password do not match.</small>
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="name">Name <i class="ace-icon fa fa-user" aria-hidden="true"></i></label>
+							<div class="col-sm-7">
+								<span class="block input-icon input-icon-right">
+									<input type="text" class="form-control" placeholder="Name" ng-model="signup.name" />
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<span class="lbl col-sm-3"> </span>
+							<div class="col-sm-7">
+								<button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="signUp(signup)" data-ng-disabled="signupForm.$invalid">
+									<i class="icon-chevron-sign-up"></i> Sign Up
+								</button>
+							</div>
+						</div>
+						<span class="lbl col-sm-3"> </span>
+						<div class="col-sm-7">Already have an account? <a href="#/login">SignIn</a>
+						</div>
+					</form>
+					</div><!-- /widget-main -->
+				</div><!-- /widget-body -->
+			</div><!-- /login-box -->
+		</div><!-- /position-relative -->
+	</div>
+</div><!-- /.page-content -->

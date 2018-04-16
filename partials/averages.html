@@ -1,0 +1,41 @@
+<div header user="user" logout="logout()" ></div>
+
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li class="active">
+            <a href="#">averages</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+		<div class="input-group">
+				Averages
+			</div>
+	</div>
+    <div class="panel-body">
+		<table class="table table-striped">
+			<tr><td>Latest shift</td><td>{{totals[0].latestTip.tip}}</td></tr>
+			<tr><td>Tips last 7 days</td><td></td></tr>
+			<tr><td>Tips this month</td><td></td></tr>
+			<tr><td>Tips 2016</td><td>12530</td></tr>
+			<tr><td>All Time Tips:</td><td>{{totals[0].totalTips}}</td></tr>
+			<tr><td>Average per shift</td><td></td></tr>
+			<tr><td>Shifts worked this month</td><td></td></tr>
+			<tr><td></td><td></td></tr>
+			<tr><td></td><td></td></tr>
+			<tr><td></td><td></td></tr>
+			<tr><td></td><td></td></tr>
+			<tr><td></td><td></td></tr>
+		</table>
+	</div>
+    <div class="panel-footer">{{selectedDate | date:'MMMM dd yyyy'}}</div>
+  </div>
+</div>
+
+<p><a ng-click="logout();">Logout</a></p>
+
+<div footer></div>

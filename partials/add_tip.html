@@ -1,0 +1,92 @@
+<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li class="active">Add Tip</li>
+		
+    </ul>
+</div>
+
+<div class="page-content">
+    <div class="row">
+        <div class="space-6"></div>
+        <div class="col-sm-10 col-sm-offset-1">
+            <div id="login-box" class="login-box visible widget-box no-border">
+                <div class="widget-body">
+                    <div class="widget-main">
+						<p><a href="#/tips">Monthly Tips</a> * 
+						<a ng-click="logout();">Logout</a></p>
+                        <h4 class="header blue lighter bigger">
+                    <i class="icon-coffee green"></i>
+                    Add Tip
+                </h4>
+				
+					<form name="addTipForm" class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="date"> Date</label>
+							<div class="col-sm-7">
+							   <span class="block input-icon input-icon-right">
+									<input type="date" class="form-control" placeholder="Date" name="date" ng-model="addtip.date" max="{{currentDate | date:'yyyy-MM-dd'}}" required focus/>
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="tips"> Tips</label>
+							<div class="col-sm-7">
+							   <span class="block input-icon input-icon-right">
+									<input type="number" step="0.01" min="0" class="form-control" placeholder="tips" name="tips" ng-model="addtip.tip" required/>
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="tipout"> Tip Out</label>
+							<div class="col-sm-7">
+							   <span class="block input-icon input-icon-right">
+									<input type="number" step="0.01" min="0" class="form-control" placeholder="tip out" name="tipout" value="0" ng-model="addtip.tipout" />
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="sales"> Sales</label>
+							<div class="col-sm-7">
+							   <span class="block input-icon input-icon-right">
+									<input type="number" step="0.01" min="0" class="form-control" placeholder="sales" name="sales" value="0" ng-model="addtip.sales" />
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="hoursworked"> Hours Worked</label>
+							<div class="col-sm-7">
+							   <span class="block input-icon input-icon-right">
+									<input type="number" step="0.01" min="0" class="form-control" placeholder="hours worked" name="hoursworked" value="0" ng-model="addtip.hoursworked" />
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="hourlypay"> Pay Rate</label>
+							<div class="col-sm-7">
+							   <span class="block input-icon input-icon-right">
+									<input type="number" step="0.01" min="0" class="form-control" placeholder="Pay Rate" name="hourlypay" value="0" ng-model="addtip.hourlypay" />
+								</span>
+							</div>
+						</div>
+						<div class="space"></div>
+						<div class="clearfix">
+							<div class="row">
+								<label class="col-sm-3 control-label no-padding-right"> </label>
+								<div class="col-sm-7">
+									<button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="addTip(addtip)" data-ng-disabled="addTipForm.$invalid">
+										Add Tip
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.page-content -->
