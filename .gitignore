@@ -1,3 +1,4 @@
 # Ignore file named 'config.php'
 api/v1/config.php
+angularcode_tiptracker.sql
 
